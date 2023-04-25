@@ -1,21 +1,20 @@
 package com.example.demo.entity;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Document
 public class AuthUser {
 
     @Id
     private String userId;
-    @Column(unique = true)
+    @Indexed(unique = true)
     private String username;
     private String password;
     private String roles;
