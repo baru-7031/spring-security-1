@@ -31,20 +31,30 @@ public class AuthUserConguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http.csrf().disable()
+
                 .authorizeHttpRequests()
-                .anyRequest().permitAll().and()
-//                .requestMatchers("/auth/create").permitAll()
-//                .and()
-//                .authorizeHttpRequests()
-//                .requestMatchers("/admin/**").permitAll()
-//                .and()
-//                .authorizeHttpRequests()
-//                .requestMatchers("/auth/**").authenticated()
-//                .and()
-//                .httpBasic().and()
-//                .logout().and()
+                .requestMatchers("/auth/create").permitAll()
+                .and()
+
+                .authorizeHttpRequests()
+                .requestMatchers("/v3/**","/swagger-ui/**").permitAll()
+                .and()
+
+                .authorizeHttpRequests()
+                .requestMatchers("/admin/**").permitAll()
+                .and()
+
+                .authorizeHttpRequests()
+                .requestMatchers("/auth/**").authenticated()
+                .and()
+
+                .httpBasic().and()
+
+                // Logout Can't Support with httpBasic
+
                 .cors()
                 .and()
+
                 .build();
     }
 

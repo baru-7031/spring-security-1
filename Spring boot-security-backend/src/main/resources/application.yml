@@ -4,9 +4,7 @@ spring:
 
   data:
     mongodb:
-      database: authUser
+      database: authuser
       host: localhost    #springmongo
       port: 27017
-
-
 
