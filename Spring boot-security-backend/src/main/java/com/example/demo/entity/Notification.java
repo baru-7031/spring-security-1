@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Notification {
 
-    private String email;
-    private String sms;
+    private Boolean email;
+    private Boolean sms;
 
 }
